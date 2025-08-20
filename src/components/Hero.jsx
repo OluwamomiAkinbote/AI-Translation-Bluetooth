@@ -152,7 +152,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
           
           {/* Left Side - Professional Image Gallery */}
-          <div className="order-2 xl:order-1">
+          <div className="order-2 xl:order-1 relative">
             <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-3xl p-4 sm:p-6 lg:p-8 shadow-2xl shadow-blue-100/50">
               {/* Main Image Display */}
               <div className="relative aspect-square rounded-2xl overflow-hidden mb-6 bg-gradient-to-br from-gray-100 to-blue-50 group">
@@ -161,7 +161,7 @@ const Hero = () => {
                   alt={images[currentImage].alt}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   onError={(e) => {
-                    e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTAwQzE0NC40NzcgMTAwIDEwMCAxNDQuNDc3IDEwMCAyMDBTMTQ0LjQ3NyAzMDAgMjAwIDMwMFMyOTcuNTIzIDI1NS41MjMgMjk3LjUyMyAyMDBTMjU1LjUyMyAxMDAgMjAwIDEwMFoiIGZpbGw9IiNFNUU3RUIiLz4KPHN2Zz4K';
+                    e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgdmlld0JveD0iMCAwIDQwMCA0MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTAwQzE0NC40NzcgMTAwIDEwMCAxNDQuNDc3IDEwMCAyMDBTMTQ0LjQ3NyAzMDAgMjAwIDMwMFMyOTcuNTIzIDI1NS41MjMgMjk3LjUyMyAyMDBTMjU1LjUyMyAxMDAgMjAwIDEwMFoiIGZpbGw9IiVFNUU3RUIiLz4KPHN2Zz4K';
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -218,8 +218,8 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Floating Accuracy Badge */}
-            <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full font-bold text-sm shadow-xl border-2 border-white">
+            {/* Floating Accuracy Badge - Fixed positioning for different screen sizes */}
+            <div className="absolute top-0 right-0 sm:top-2 sm:right-2 md:-top-3 md:-right-3 lg:-top-4 lg:-right-4 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full font-bold text-sm shadow-xl border-2 border-white z-10">
               <Star className="w-4 h-4 inline mr-1" />
               98% Accuracy
             </div>
@@ -233,95 +233,32 @@ const Hero = () => {
               Advanced AI Technology • Trusted Worldwide
             </div>
 
-            {/* Main Headline */}
+            {/* Main Headline - Optimized for Responsiveness */}
             <div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 leading-tight">
-                <span className="text-gray-900">Break Every</span>
-                <br />
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Language Barrier
+                <span className="text-gray-900 block text-center xl:text-left">
+                  For Nigerians Working With
+                </span>
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent block text-center xl:text-left">
+                  Foreign Companies
                 </span>
               </h1>
               
-              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-4 sm:mb-6 max-w-2xl">
-                Experience seamless global communication with our revolutionary AI translation earbuds. 
-                Featuring <strong className="text-blue-600">98% translation accuracy</strong> across 
-                <strong className="text-indigo-600"> 144+ languages</strong> and premium Hi-Fi audio quality.
+              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed mb-4 sm:mb-6 text-center xl:text-left">
+                <strong className="text-blue-600">Stop miscommunication</strong> with your Chinese, Indian, 
+                Bangladeshi, and Japanese employers. Get <strong className="text-indigo-600">accurate, real-time translations</strong> 
+                that help you understand exactly what they want.
               </p>
 
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl">
-                Transform your business meetings, international travel, and cross-cultural relationships 
-                with instant, professional-grade translation technology.
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed text-center xl:text-left">
+                No more biased translators filtering messages. Hear the truth directly and communicate with confidence.
               </p>
-            </div>
-
-            {/* Key Benefits Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              {/* Real-Time Translation */}
-              <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all group">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="bg-blue-100 rounded-xl p-2 sm:p-3 group-hover:bg-blue-200 transition-colors">
-                    <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Instant Translation</h3>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      Real-time bidirectional translation with advanced AI algorithms for natural conversations.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Multiple Modes */}
-              <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all group">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="bg-purple-100 rounded-xl p-2 sm:p-3 group-hover:bg-purple-200 transition-colors">
-                    <Volume2 className="w-5 h-5 sm:w-6 sm:h-6 text-purple-600" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Smart Modes</h3>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      Silent, Speaker, Conference modes adapt to any communication scenario.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Hi-Fi Audio */}
-              <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all group">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="bg-green-100 rounded-xl p-2 sm:p-3 group-hover:bg-green-200 transition-colors">
-                    <Headphones className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Premium Audio</h3>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      360° surround sound with crystal-clear call quality and noise cancellation.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Business Ready */}
-              <div className="bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all group">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div className="bg-orange-100 rounded-xl p-2 sm:p-3 group-hover:bg-orange-200 transition-colors">
-                    <Users className="w-5 h-5 sm:w-6 sm:h-6 text-orange-600" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Business Grade</h3>
-                    <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                      Professional quality for international meetings, conferences, and negotiations.
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* CTA Section */}
             <div className="space-y-4 sm:space-y-6">
               {/* Primary CTA */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center xl:justify-start">
                 <button 
                   onClick={handleBuyNowClick}
                   className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold py-4 px-6 sm:px-8 rounded-2xl text-base sm:text-lg transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl border border-blue-500/50 w-full sm:w-auto"
@@ -335,7 +272,7 @@ const Hero = () => {
 
               {/* Special Offer */}
               <div className="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-2xl p-4 sm:p-6">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 justify-center xl:justify-start">
                   <div className="flex items-center gap-2">
                     <Zap className="w-5 h-5 text-red-500" />
                     <span className="text-red-600 font-bold text-lg">Limited Launch Offer:</span>
