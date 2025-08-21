@@ -1,5 +1,7 @@
 import Hero from './Hero';
 import WebsiteBanner from './WebsiteBanner';
+import Features from './Features'
+import ImageSlider from './ImageSlider';
 
 
 
@@ -9,7 +11,12 @@ export default function Home() {
       <WebsiteBanner />
       {/* Hero section */}
       <Hero />
-      {/* Additional content can be added here */}
+      <Features/>
+      {/* Image Slider */}
+      <ImageSlider />
+      
+
+      
 
 
     </main>
