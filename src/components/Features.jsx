@@ -1,121 +1,189 @@
-import React from 'react';
-import { FaGlobe, FaRobot, FaMicrophone, FaHeadphones, FaBatteryFull, FaCheckCircle, FaHandshake, FaPlane, FaGraduationCap, FaComments } from 'react-icons/fa';
+"use client";
+
+import Image from "next/image";
+import { CheckCircle, ChevronLeft, ChevronRight, ShoppingBag } from "lucide-react";
+import { useState } from "react";
 
 const Features = () => {
   const features = [
     {
-      icon: <FaGlobe className="text-blue-500" size={24} />,
-      title: "144 Languages Worldwide",
-      description: "Real-time translation in 144 languages powered by cutting-edge AI technology, including English, French, and Chinese.",
-      benefits: [
-        { icon: <FaHandshake className="text-green-500 mr-2" />, text: "Boost International Trade: Negotiate confidently with global partners" },
-        { icon: <FaPlane className="text-green-500 mr-2" />, text: "Empower the Diaspora: Navigate foreign countries with ease" },
-        { icon: <FaComments className="text-green-500 mr-2" />, text: "Tourism Growth: Welcome international tourists to Nigeria's rich heritage" }
+      title: "Face-to-Face Real-Time Translation",
+      desc: [
+        "Talk in English, they hear it in their language instantly",
+        "They reply in their language, you hear it in English immediately",
+        "No delay, no stress, no awkward hand signs — just normal talk",
+        "Perfect for travel, business, making new friends, or learning a new language",
       ],
-      image: "/images/Ai-Earbud-2.jpg"
+      images: ["/images/AI-Earbud-11 (1).jpg", "/images/AI-08.jpg"],
     },
     {
-      icon: <FaRobot className="text-purple-500" size={24} />,
-      title: "AI Chat & Call Translation",
-      description: "Features a multilingual AI assistant that answers questions and offers tips with real-time translation for calls.",
-      benefits: [
-        { icon: <FaHandshake className="text-green-500 mr-2" />, text: "Excel in Remote Work: Participate in global video calls with crystal clear translation" },
-        { icon: <FaGraduationCap className="text-green-500 mr-2" />, text: "Affordable Language Tutor: Perfect for students mastering foreign languages" },
-        { icon: <FaComments className="text-green-500 mr-2" />, text: "Connect Families Worldwide: Maintain strong connections with diaspora family members" }
+      title: "Free Recording-to-Text Conversion",
+      desc: [
+        "Record conversations, lectures, or meetings — and get them in text instantly",
+        "Save, read, or review later without writing notes",
+        "Perfect for business, classes, interviews, or study",
+        "Speak freely, it writes everything for you — no pen needed",
       ],
-      image: "/images/AI-Earbud-15.jpg"
+      images: ["/images/AI-08.jpg", "/images/AI-018.jpg"],
     },
     {
-      icon: <FaMicrophone className="text-green-500" size={24} />,
-      title: "5 Translation Modes",
-      description: "Includes Free Talk, Headphone+Phone, Audio/Video Call, Photo Translation and Translation Machine modes.",
-      benefits: [
-        { icon: <FaPlane className="text-green-500 mr-2" />, text: "The Ultimate Travel Companion: Translate menus, signs, and announcements instantly" },
-        { icon: <FaComments className="text-green-500 mr-2" />, text: "Navigate Daily Encounters: Communicate effortlessly with expats and international visitors" },
-        { icon: <FaHandshake className="text-green-500 mr-2" />, text: "Crisis Communication: Communicate critical information in emergencies abroad" }
+      title: "3-in-1 Functionality + HD Audio",
+      desc: [
+        "Translate, listen to music, and make calls with one device",
+        "Big speaker + 4 powerful microphones = clear sound every time",
+        "Great for work, play, or travel",
       ],
-      image: "/images/AI-Earbud-11.jpg"
+      images: ["/images/AI-018.jpg", "/images/AI-Earbud-15.jpg"],
     },
     {
-      icon: <FaHeadphones className="text-yellow-500" size={24} />,
-      title: "3-in-1 Multifunctional Design",
-      description: "Combines AI real-time translation, video calls, phone calls, and high-quality music in one compact device.",
-      benefits: [
-        { icon: <FaCheckCircle className="text-green-500 mr-2" />, text: "Maximize Value & Convenience: Three premium devices in one at a cost-conscious price" },
-        { icon: <FaCheckCircle className="text-green-500 mr-2" />, text: "Productivity Redefined: Transition seamlessly from translated meetings to music without changing devices" }
+      title: "Open-Ear Comfort & Waterproof",
+      desc: [
+        "Super light, only 8g each",
+        "Waterproof (IPX7) — safe in rain or sweat",
+        "Soft silicone hooks for secure fit",
+        "Comfortable for workouts, travel, and daily use",
       ],
-      image: "/images/AI-Earbud-14.jpg"
+      images: ["/images/AI-014.jpg", "/images/AI-Earbud-13.jpg", "/images/AI-013.jpg"],
     },
     {
-      icon: <FaBatteryFull className="text-red-500" size={24} />,
-      title: "High-Fidelity Sound & 80H Battery",
-      description: "Twin 16mm drivers with noise reduction deliver rich, clear sound. LED-display charging case provides 80 hours total battery life.",
-      benefits: [
-        { icon: <FaCheckCircle className="text-green-500 mr-2" />, text: "Conquer Power Challenges: Stay connected through long meetings despite unpredictable electricity" },
-        { icon: <FaHeadphones className="text-green-500 mr-2" />, text: "Immersive Audio Experience: Enjoy vibrant details of music and calls" },
-        { icon: <FaPlane className="text-green-500 mr-2" />, text: "Travel Without Anxiety: LED display lets you monitor battery levels precisely" }
+      title: "60 Hours Battery Life",
+      desc: [
+        "10 hours nonstop play per charge",
+        "With case = 60 hours total playtime",
+        "5 minutes quick charge = 1 hour of use",
+        "Enjoy music, calls, and translation all day without worry",
       ],
-      image: "/images/AI-Earbud-21.jpg"
-    }
+      images: ["/images/AI-06.jpg", "/images/AI-015.jpg"],
+    },
+    {
+      title: "Smart Touch Control",
+      desc: [
+        "Tap to control music or calls easily",
+        "Built-in LED screen to see battery status",
+        "AI-powered mic reduces background noise",
+        "Always clear when speaking",
+      ],
+      images: ["/images/AI-019.jpg"],
+    },
+    {
+      title: "Bluetooth 5.4 + HIFI Bass",
+      desc: [
+        "Latest Bluetooth 5.4 chip = faster connection, less battery use",
+        "No delays, no interference",
+        "AI Bass for deep music and smooth calls",
+        "Sounds rich, powerful, and clear",
+      ],
+      images: ["/images/AI-02.jpg"],
+    },
   ];
 
+  const [activeImageIndexes, setActiveImageIndexes] = useState(
+    features.map(() => 0)
+  );
+
+  const handleNextImage = (featureIndex) => {
+    setActiveImageIndexes((prev) => {
+      const newIndexes = [...prev];
+      const nextIndex =
+        (newIndexes[featureIndex] + 1) % features[featureIndex].images.length;
+      newIndexes[featureIndex] = nextIndex;
+      return newIndexes;
+    });
+  };
+
+  const handlePrevImage = (featureIndex) => {
+    setActiveImageIndexes((prev) => {
+      const newIndexes = [...prev];
+      const prevIndex =
+        (newIndexes[featureIndex] - 1 + features[featureIndex].images.length) %
+        features[featureIndex].images.length;
+      newIndexes[featureIndex] = prevIndex;
+      return newIndexes;
+    });
+  };
+
+  const scrollToPackage = () => {
+    const section = document.getElementById("package");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8 ">
-      <div className="max-w-7xl mx-auto">
-        {/* Key Features and Benefits Header */}
-        <div className="bg-gradient-to-r from-green-50 to-white p-8 rounded-xl mb-16 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Key Features and Benefits
-          </h2>
-          <p className="text-gray-700 max-w-3xl mx-auto text-lg">
-            more features and benefits of the AI Earbud that make it a must-have for anyone looking to enhance their communication and travel experiences.
+    <section className="py-16 px-6 md:px-12 lg:px-20 bg-gray-50">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12">
+        Here's Why Nigerians Are Loving These AI Translator Earbuds
+      </h2>
 
-          </p>
-        </div>
-
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className="bg-white rounded-xl shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="flex justify-center mb-4">
-                {feature.icon}
-              </div>
-              <img 
-                src={feature.image} 
+      <div className="grid gap-16 md:grid-cols-3">
+        {features.map((feature, index) => (
+          <div key={index} className="flex flex-col items-start gap-6">
+            {/* Image container */}
+            <div className="relative w-full h-80 lg:h-auto overflow-hidden">
+              <Image
+                src={feature.images[activeImageIndexes[index]]}
                 alt={feature.title}
-                className="w-full h-48 object-cover rounded-lg mb-4"
+                width={800}
+                height={600}
+                className="object-cover w-full h-auto"
+                sizes="(max-width: 768px) 100vw, 100vw"
               />
-              <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">
+
+              {/* Navigation */}
+              {feature.images.length > 1 && (
+                <>
+                  <button
+                    onClick={() => handlePrevImage(index)}
+                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/70 text-white p-2 rounded-full opacity-80 hover:opacity-100 transition-opacity"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="h-6 w-6" />
+                  </button>
+                  <button
+                    onClick={() => handleNextImage(index)}
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/70 text-white p-2 rounded-full opacity-80 hover:opacity-100 transition-opacity"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="h-6 w-6" />
+                  </button>
+
+                  {/* Image counter */}
+                  <div className="absolute bottom-4 right-4 bg-black/70 text-white text-sm px-3 py-1 rounded-full">
+                    {activeImageIndexes[index] + 1} / {feature.images.length}
+                  </div>
+                </>
+              )}
+            </div>
+
+            {/* Text content */}
+            <div className="w-full">
+              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 px-0 py-2 bg-gradient-to-r from-blue-50 to-blue-100 pl-4 border-l-4 border-blue-500">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 mb-4 text-center">
-                {feature.description}
-              </p>
-              
-              <div className="mt-4 pt-4 border-t border-gray-100">
-                <h4 className="font-medium text-green-700 mb-3 text-center">
-                  Lifestyle Benefits:
-                </h4>
-                <ul className="space-y-3">
-                  {feature.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-start">
-                      {benefit.icon}
-                      <span className="text-gray-700 text-sm">{benefit.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <ul className="space-y-3 text-gray-800 text-lg lg:text-xl leading-relaxed">
+                {feature.desc.map((point, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-          ))}
-        </div>
-
-      
-       
+          </div>
+        ))}
       </div>
-    </div>
+
+      {/* CTA button at the bottom */}
+      <div className="mt-16 flex justify-center">
+        <button
+          onClick={scrollToPackage}
+          className="flex items-center gap-3 px-12 py-5 text-2xl font-bold text-white bg-red-600 hover:bg-red-700 transition-colors rounded-lg"
+        >
+          <ShoppingBag className="w-7 h-7" />
+          See Packages & Order Now
+        </button>
+      </div>
+    </section>
   );
 };
 

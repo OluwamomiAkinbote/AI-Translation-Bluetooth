@@ -9,8 +9,8 @@ function Contact() {
 
   const packagePrices = {
     single: 35000,
-    double: 63000,
-    triple: 89250
+    double: 67900,
+    triple: 98700
   };
 
   if (state.succeeded) {
@@ -190,8 +190,8 @@ function Contact() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[
                 { id: 'single', name: 'Single', price: 35000, desc: '1 set' },
-                { id: 'double', name: 'Double', price: 63000, desc: '2 sets (Save ₦7,000)' },
-                { id: 'triple', name: 'Family', price: 89250, desc: '3 sets (Save ₦15,750)' }
+                { id: 'double', name: 'Double', price: 67900, desc: '2 sets (Save ₦7,000)' },
+                { id: 'triple', name: 'Family', price: 98700, desc: '3 sets (Save ₦15,750)' }
               ].map((pkg) => (
                 <div key={pkg.id} className="relative">
                   <input
