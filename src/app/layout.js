@@ -1,6 +1,6 @@
 import './globals.css';
 import FloatingContactWidget from '@/components/FloatingContactWidget';
-import Script from 'next/script';
+import MetaPixel from '@/components/MetaPixel';
 
 export const metadata = {
   title: {
@@ -67,15 +67,7 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className="font-poppins min-h-screen flex flex-col bg-gradient-to-r from-[#000000] via-[#0a0a0a] to-[#000000]">
-        {/* Meta Pixel */}
-        <Script
-          src="https://connect.facebook.net/en_US/fbevents.js"
-          strategy="afterInteractive"
-          onLoad={() => {
-            window.fbq('init', '1195688062298723');
-            window.fbq('track', 'PageView');
-          }}
-        />
+        <MetaPixel />
         
         <main className="flex-grow">
           <FloatingContactWidget />
