@@ -9,11 +9,20 @@ import { usePathname } from "next/navigation";
 export default function RootLayout({ children }) {
   const pathname = usePathname();
 
-  // Fire Pixel PageView when route changes
+  // Fire Pixel PageView when route changes with proper loading check
   useEffect(() => {
-    if (typeof window.fbq === "function") {
-      window.fbq("track", "PageView");
-    }
+    const trackPageView = () => {
+      if (typeof window !== 'undefined' && window.fbq && typeof window.fbq === 'function') {
+        console.log('Tracking PageView for:', pathname); // Debug log
+        window.fbq("track", "PageView");
+      } else {
+        console.warn('Facebook Pixel not loaded yet'); // Debug log
+      }
+    };
+
+    // Add small delay to ensure pixel is loaded on route changes
+    const timer = setTimeout(trackPageView, 200);
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   return (
@@ -22,10 +31,10 @@ export default function RootLayout({ children }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {/* ✅ Facebook Pixel Base Code */}
+        {/* Facebook Pixel Base Code - Load early */}
         <Script
           id="facebook-pixel"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -37,11 +46,28 @@ export default function RootLayout({ children }) {
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
               
-              fbq('init', '1195688062298723'); // ✅ Hardcoded Pixel ID
+              fbq('init', '1195688062298723');
               fbq('track', 'PageView');
+              
+              // Debug: Log when pixel is initialized
+              console.log('Facebook Pixel initialized');
             `,
           }}
         />
+        
+        {/* Alternative: Load pixel script directly */}
+        <Script 
+          src="https://connect.facebook.net/en_US/fbevents.js"
+          strategy="beforeInteractive"
+          onLoad={() => {
+            console.log('Facebook Pixel script loaded');
+            if (window.fbq) {
+              window.fbq('init', '1195688062298723');
+              window.fbq('track', 'PageView');
+            }
+          }}
+        />
+
         <noscript>
           <img
             height="1"
@@ -50,7 +76,6 @@ export default function RootLayout({ children }) {
             src="https://www.facebook.com/tr?id=1195688062298723&ev=PageView&noscript=1"
           />
         </noscript>
-        {/* ✅ End Facebook Pixel Base Code */}
       </head>
 
       <body className="font-poppins min-h-screen flex flex-col bg-gradient-to-r from-[#000000] via-[#0a0a0a] to-[#000000]">
