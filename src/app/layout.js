@@ -5,7 +5,6 @@ import FloatingContactWidget from "@/components/FloatingContactWidget";
 import Script from "next/script";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { pageview } from "@/lib/fpixel";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -13,7 +12,7 @@ export default function RootLayout({ children }) {
   // Fire Pixel PageView when route changes
   useEffect(() => {
     if (typeof window.fbq === "function") {
-      pageview();
+      window.fbq("track", "PageView");
     }
   }, [pathname]);
 
@@ -22,8 +21,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="font-poppins min-h-screen flex flex-col bg-gradient-to-r from-[#000000] via-[#0a0a0a] to-[#000000]">
+
         {/* ✅ Facebook Pixel Base Code */}
         <Script
           id="facebook-pixel"
@@ -38,7 +36,8 @@ export default function RootLayout({ children }) {
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '${process.env.NEXT_PUBLIC_FB_PIXEL_ID || "1195688062298723"}');
+              
+              fbq('init', '1195688062298723'); // ✅ Hardcoded Pixel ID
               fbq('track', 'PageView');
             `,
           }}
@@ -52,7 +51,9 @@ export default function RootLayout({ children }) {
           />
         </noscript>
         {/* ✅ End Facebook Pixel Base Code */}
+      </head>
 
+      <body className="font-poppins min-h-screen flex flex-col bg-gradient-to-r from-[#000000] via-[#0a0a0a] to-[#000000]">
         <main className="flex-grow">
           <FloatingContactWidget />
           {children}
