@@ -15,7 +15,7 @@ function Contact() {
 
   if (state.succeeded) {
     return (
-      <div className="flex justify-center items-center min-h-[400px]">
+      <div className="flex justify-center items-center min-h-[400px]" >
         <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center max-w-md w-full mx-4">
           <div className="bg-green-100 text-green-600 rounded-full p-3 inline-flex items-center justify-center mb-4">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -35,7 +35,7 @@ function Contact() {
   }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center" id="contact">
       <div className="bg-white rounded-lg shadow-md overflow-hidden w-full max-w-2xl mx-4">
         <div className="bg-gray-900 text-white py-4 px-6 text-center">
           <h2 className="text-xl font-semibold">Place Your Order</h2>
